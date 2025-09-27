@@ -8,3 +8,5 @@
     <PropertyGroup>
   <GamePath Condition=" '$(GamePath)' == '' ">../android-game</GamePath>
 </PropertyGroup>
+
+</project>
