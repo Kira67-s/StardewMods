@@ -5,8 +5,6 @@
         <AssemblyName>StackEverythingRedux</AssemblyName>
         <RootNamespace>StackEverythingRedux</RootNamespace>
         <EnableHarmony>true</EnableHarmony>
-    </PropertyGroup>
-</Project>
-<PropertyGroup>
+    <PropertyGroup>
   <GamePath Condition=" '$(GamePath)' == '' ">../android-game</GamePath>
 </PropertyGroup>
