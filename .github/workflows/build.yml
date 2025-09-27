@@ -1,4 +1,4 @@
-name: Build and Release Mod (with SMAPI-Android)
+name: Build and Release Mod (SMAPI-Android)
 
 on:
   workflow_dispatch:
@@ -18,16 +18,13 @@ jobs:
         with:
           dotnet-version: '6.0.x'
 
-      - name: Download SMAPI-Android assemblies
+      - name: Clone SMAPI-Android
         run: |
-          mkdir -p android-game
-          # clone SMAPI-Android
           git clone https://github.com/NRTnarathip/SMAPI-Android-1.6.git smapi-android
-          # build SMAPI-Android (jika butuh) atau gunakan binars yang sudah ada
-          # misalnya: cd smapi-android && dotnet build -c Release
-          # lalu salin dll yang dibutuhkan ke folder android-game
-          cp smapi-android/src/Modding/StardewModdingAPI/bin/Release/net6.0/StardewModdingAPI.dll android-game/
-          cp smapi-android/src/StardewBin/StardewValley/bin/Release/net6.0/StardewValley.dll android-game/
+          mkdir -p android-game
+          # ambil StardewValley.dll & StardewModdingAPI.dll dari repo SMAPI-Android
+          cp smapi-android/StardewValley.dll android-game/ || true
+          cp smapi-android/StardewModdingAPI.dll android-game/ || true
 
       - name: Restore dependencies
         run: dotnet restore ./StackEverythingRedux
