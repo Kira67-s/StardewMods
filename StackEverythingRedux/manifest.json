@@ -1,10 +1,10 @@
 {
-    "Name": "Stack Everything Redux",
-    "Author": "thimadera",
-    "Version": "1.2.1",
-    "Description": "Enhance stacking in Stardew Valley beyond 999! Customize stacks and simplify item handling.",
-    "UniqueID": "thimadera.StackEverythingRedux",
-    "EntryDll": "StackEverythingRedux.dll",
-    "MinimumApiVersion": "4.0.0",
-    "UpdateKeys": [ "Nexus:22381" ]
+  "Name": "Stack Everything Redux",
+  "Author": "thimadera (compiled)",
+  "Version": "1.0.0",
+  "UniqueID": "thimadera.StackEverythingRedux",
+  "EntryDll": "StackEverythingRedux.dll",
+  "MinimumApiVersion": "4.1.0",
+  "Description": "Updated build of StackEverythingRedux for Stardew Valley 1.6.15 + SMAPI 4.1.10.3 (Android).",
+  "UpdateKeys": []
 }
