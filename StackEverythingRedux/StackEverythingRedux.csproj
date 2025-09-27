@@ -7,3 +7,6 @@
         <EnableHarmony>true</EnableHarmony>
     </PropertyGroup>
 </Project>
+<PropertyGroup>
+  <GamePath Condition=" '$(GamePath)' == '' ">../android-game</GamePath>
+</PropertyGroup>
