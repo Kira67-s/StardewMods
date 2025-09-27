@@ -1,12 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <AssemblyName>StackEverythingRedux</AssemblyName>
-        <RootNamespace>StackEverythingRedux</RootNamespace>
-        <EnableHarmony>true</EnableHarmony>
-    <PropertyGroup>
-  <GamePath Condition=" '$(GamePath)' == '' ">../android-game</GamePath>
-</PropertyGroup>
 
-</project>
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <EnableHarmony>true</EnableHarmony>
+    <LangVersion>latest</LangVersion>
+    <GamePath Condition=" '$(GamePath)' == '' ">../android-game</GamePath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.4.0" />
+  </ItemGroup>
+
+</Project>
