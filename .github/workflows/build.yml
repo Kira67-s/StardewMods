@@ -1,0 +1,38 @@
+name: Build and Release Mod
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ master, main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '6.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore ./StackEverythingRedux
+
+      - name: Build mod
+        run: dotnet build ./StackEverythingRedux -c Release --no-restore
+
+      - name: Package mod
+        run: |
+          mkdir -p release/StackEverythingRedux
+          cp StackEverythingRedux/bin/Release/net6.0/StackEverythingRedux.dll release/StackEverythingRedux/
+          cp StackEverythingRedux/manifest.json release/StackEverythingRedux/
+
+      - name: Upload release artifact
+        uses: softprops/action-gh-release@v1
+        with:
+          files: release/**
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
