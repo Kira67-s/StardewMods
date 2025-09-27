@@ -18,13 +18,15 @@ jobs:
         with:
           dotnet-version: '6.0.x'
 
-      - name: Clone SMAPI-Android
-        run: |
-          git clone https://github.com/NRTnarathip/SMAPI-Android-1.6.git smapi-android
-          mkdir -p android-game
-          # ambil StardewValley.dll & StardewModdingAPI.dll dari repo SMAPI-Android
-          cp smapi-android/StardewValley.dll android-game/ || true
-          cp smapi-android/StardewModdingAPI.dll android-game/ || true
+      - name: Clone & Build SMAPI-Android
+  run: |
+    git clone https://github.com/NRTnarathip/SMAPI-Android-1.6.git smapi-android
+    cd smapi-android
+    dotnet build -c Release
+    cd ..
+    mkdir -p android-game
+    cp smapi-android/StardewValley/bin/Release/net6.0/StardewValley.dll android-game/ || true
+    cp smapi-android/SMAPI/bin/Release/net6.0/StardewModdingAPI.dll android-game/ || true
 
       - name: Restore dependencies
         run: dotnet restore ./StackEverythingRedux
